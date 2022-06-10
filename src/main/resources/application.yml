@@ -1,0 +1,114 @@
+#local, dev, prod
+server:
+  port: 5000
+
+spring:
+  profiles:
+    active: local
+
+  application:
+    name: did-solution-backend
+    version: 0.0.1
+    title: did-solution-backend
+  http:
+    encoding:
+      charset: UTF-8 # the encoding of HTTP requests/responses
+      enabled: true # enable http encoding support
+      force: true # force the configured encoding
+  datasource:
+    hikari:
+      connectionTimeout: 30000
+      maximumPoolSize: 30
+      maxLifeTime: 1800000
+      autoCommit: false
+      poolName: HikariCP
+      readOnly: false
+      connectionTestQuery: SELECT 1
+      leakDetectionThreshold: 2000
+
+  messages:
+    basename: i18n/message
+    encoding: UTF-8
+  output:
+    ansi:
+      enabled: always
+
+management:
+  endpoints:
+    web:
+      cors:
+        allowed-origins: '*'
+        allowed-methods: GET
+
+jwt:
+  header: x-code-header
+  secret: aGVsbG8tdGhpcy1pcy1hLW1vbmEtZGlkLXN5c3RlbS13ZWxjb21lLXRvLXRoZS1kZWNlbnRyYWxpemUtSUQtd29ybGQtTWF5LWJlLWZvcmNlLXdpdGgteW91Cg==
+  token-validity-in-seconds: 864000
+
+
+
+--- #prod
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:mysql://terraform-20211012055330495800000002.caifodrjvn6w.ap-northeast-2.rds.amazonaws.com:13306/RDIS?useUnicode=true&characterEncoding=utf8
+    username: rdisadm
+    password: fkdpfis321!
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        user_sql_comments: true
+    open-in-view: false
+
+
+--- #dev
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://terraform-20210617085454579400000001.caifodrjvn6w.ap-northeast-2.rds.amazonaws.com/RDIS?useUnicode=true&characterEncoding=utf8
+    username: postgres
+    password: mysecretpasword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        user_sql_comments: true
+    open-in-view: false
+
+
+
+--- #local
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/solution
+    username: postgres
+    password: mysecretpasword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        user_sql_comments: true
+    open-in-view: false
