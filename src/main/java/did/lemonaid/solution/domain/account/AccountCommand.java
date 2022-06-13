@@ -18,7 +18,7 @@ public class AccountCommand {
     String accountPw;
     String accountName;
     String cellphoneNumber;
-    String phoneNumber;
+    String email;
     String authIp;
 
     public Account toEntity() {
@@ -26,7 +26,7 @@ public class AccountCommand {
                 .accountId(accountId)
                 .accountName(accountName)
                 .cellphoneNumber(cellphoneNumber)
-                .phoneNumber(phoneNumber)
+                .email(email)
                 .authIp(authIp)
                 .build();
     }

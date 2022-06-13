@@ -8,7 +8,7 @@ public class AccountInfo {
     private final String accountId;
     private final String accountName;
     private final String cellphoneNumber;
-    private final String phoneNumber;
+    private final String email;
     private final Account.AccountStatus accountStatus;
     private final String authIp;
 
@@ -18,7 +18,7 @@ public class AccountInfo {
         this.accountId = account.getAccountId();
         this.accountName = account.getAccountName();
         this.cellphoneNumber = account.getCellphoneNumber();
-        this.phoneNumber = account.getPhoneNumber();
+        this.email = account.getEmail();
         this.accountStatus = account.getAccountStatus();
         this.authIp = account.getAuthIp();
     }

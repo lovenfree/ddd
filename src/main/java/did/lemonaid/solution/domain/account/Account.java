@@ -34,8 +34,8 @@ public class Account extends BaseEntity {
     @Column(name="CPNO")
     private String cellphoneNumber;
 
-    @Column(name="WIRE_TLNO")
-    private String phoneNumber;
+    @Column(name="EMAIL")
+    private String email;
 
     @Column(name="ACC_STCD", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -64,12 +64,12 @@ public class Account extends BaseEntity {
 
     @Builder
     public Account(String accountId, String accountPw, String accountName, String cellphoneNumber,
-                   String phoneNumber, AccountStatus accountStatus, String authIp) {
+                   String email, AccountStatus accountStatus, String authIp) {
         this.accountId = accountId;
         this.accountPwHash = accountPw;
         this.accountName = accountName;
         this.cellphoneNumber = cellphoneNumber;
-        this.phoneNumber = phoneNumber;
+        this.email = email;
         this.accountStatus = accountStatus;
         this.authIp = authIp;
 
@@ -85,7 +85,7 @@ public class Account extends BaseEntity {
 
         this.accountName = account.getAccountName();
         this.cellphoneNumber = account.getCellphoneNumber();
-        this.phoneNumber = account.getPhoneNumber();
+        this.email = account.getEmail();
         this.accountStatus = account.getAccountStatus();
         this.authIp = account.getAuthIp();
         updateProgramIdInfo(Util.getMethodName());

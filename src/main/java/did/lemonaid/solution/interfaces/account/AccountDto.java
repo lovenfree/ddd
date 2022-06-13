@@ -31,9 +31,9 @@ public class AccountDto {
         @ApiModelProperty(value = "휴대전화번호", example = "01000000000")
         String cellphoneNumber;
 
-        @JsonProperty("phone_number")
-        @ApiModelProperty(value = "유선전화번호", example = "0200000000")
-        String phoneNumber;
+        @JsonProperty("email")
+        @ApiModelProperty(value = "이메일", example = "lemonaid@lgcns.com")
+        String email;
 
         @JsonProperty("account_status")
         @ApiModelProperty(value = "계정상태", example = "", required = true)
@@ -78,9 +78,9 @@ public class AccountDto {
         @ApiModelProperty(value = "휴대전화번호", example = "01000000000")
         String cellphoneNumber;
 
-        @JsonProperty("phone_number")
-        @ApiModelProperty(value = "유선전화번호", example = "0200000000")
-        String phoneNumber;
+        @JsonProperty("email")
+        @ApiModelProperty(value = "email", example = "lemonaid@lgcns.com")
+        String email;
 
         @JsonProperty("auth_ip")
         @ApiModelProperty(value = "권한IP", example = "0.0.0.0", required = true)
@@ -114,9 +114,13 @@ public class AccountDto {
         @ApiModelProperty(value = "휴대전화번호", example = "01000000000")
         String cellphoneNumber;
 
-        @JsonProperty("phone_number")
-        @ApiModelProperty(value = "유선전화번호", example = "0200000000")
-        String phoneNumber;
+        @JsonProperty("email")
+        @ApiModelProperty(value = "이메일", example = "lemonaid@lgcns.com")
+        String email;
+
+//        @JsonProperty("phone_number")
+//        @ApiModelProperty(value = "유선전화번호", example = "0200000000")
+//        String phoneNumber;
 
         @JsonProperty("auth_ip")
         @ApiModelProperty(value = "권한IP", example = "0.0.0.0", required = true)
